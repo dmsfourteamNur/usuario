@@ -1,0 +1,63 @@
+servers:
+- {url: 'http://localhost:8080/api/'}
+openapi: 3.0.0
+paths:
+  /usuario/registro:
+    post:
+      summary: /usuario register
+      requestBody:
+        content:
+          application/json:
+            schema: {type: object}
+      operationId: /usuario_register
+      responses:
+        '200': {description: Response 200}
+      tags: [/usuario]
+  /usuario/:
+    get:
+      summary: /usuario getAll
+      operationId: /usuario_getAll
+      responses:
+        '200': {description: Response 200}
+      tags: [/usuario]
+  /usuario/{key}:
+    get:
+      summary: /usuario getByKey
+      operationId: /usuario_getByKey
+      responses:
+        '200': {description: Response 200}
+      parameters:
+      - schema: {type: string}
+        in: path
+        name: key
+        required: true
+      tags: [/usuario]
+    delete:
+      summary: /usuario delete
+      operationId: /usuario_delete
+      responses:
+        '200': {description: Response 200}
+      parameters:
+      - schema: {type: string}
+        in: path
+        name: key
+        required: true
+      tags: [/usuario]
+    put:
+      summary: /usuario edit
+      requestBody:
+        content:
+          application/json:
+            schema: {type: object}
+      operationId: /usuario_edit
+      responses:
+        '200': {description: Response 200}
+      parameters:
+      - schema: {type: string}
+        in: path
+        name: key
+        required: true
+      tags: [/usuario]
+info: {description: FuourTeam API description, title: FourTeam API, version: 1.0.1}
+tags:
+- {name: /usuario, description: /usuario_descripcion}
